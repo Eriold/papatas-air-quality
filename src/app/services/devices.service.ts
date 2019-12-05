@@ -13,8 +13,7 @@ export class DeviceService {
   constructor(
     private http: HttpClient,
     private adapter: DeviceAdapter,
-  ) {
-  }
+  ) { }
 
   list(): Observable<Device[]> {
     return this.http.get(urlDevices).pipe(
