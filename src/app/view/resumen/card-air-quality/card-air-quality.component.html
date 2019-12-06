@@ -1,1 +1,21 @@
-<p>card-air-quality works!</p>
+<div class="card-air-quality" [style.border-color]="getColorAirQuality(AirQuality)">
+    <div class="flex-container">
+        <div style="flex-grow: 1" class="aling-left"> <span class="pl-desing-border size-text-small">{{ Id }}</span></div>
+        <div style="flex-grow: 3" class="aling-left">
+            <span class="circle-emergency" [style.background-color]="getColorAirQuality(AirQuality)"></span>
+            <span class="last-activity size-text-medium">{{ formatLastActivity(LastActivity) }}</span>
+        </div>
+        <div style="flex-grow: 1" class="aling-right size-text-big">{{ Temperature }}°C</div>
+    </div>
+    <div class="flex-container">
+        <div style="flex-grow: 1" class="aling-left">
+            <span class="text-card aling-left">
+      <strong class="aling-left "> {{ Name }} </strong></span
+    >
+    <span class="city-name aling-left">{{ CityId }} </span>
+        </div>
+        <div style="flex-grow: 1" class="aling-right">
+            <i style="font-size:24px" [className]="Icon" style="font-size:36px;color:black"></i>
+        </div>
+    </div>
+</div>
