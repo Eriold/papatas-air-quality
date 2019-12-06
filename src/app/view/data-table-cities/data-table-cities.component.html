@@ -2,14 +2,14 @@
     <table mat-table class="full-width-table" matSort aria-label="Elements">
         <!-- Id Column -->
         <ng-container matColumnDef="id">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
-            <td mat-cell *matCellDef="let row">{{row.id}}</td>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombre de Ciudad</th>
+            <td mat-cell *matCellDef="let row">{{row.nameCity}}</td>
         </ng-container>
 
         <!-- Name Column -->
         <ng-container matColumnDef="name">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
-            <td mat-cell *matCellDef="let row">{{row.name}}</td>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Total dispositivos</th>
+            <td mat-cell *matCellDef="let row">{{row.totalDevices}}</td>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

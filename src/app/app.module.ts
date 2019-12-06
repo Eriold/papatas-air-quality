@@ -8,10 +8,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { MatToolbarModule } from '@angular/material/';
+
 import { CardAirQualityComponent } from './view/resumen/card-air-quality/card-air-quality.component';
 import { DataTableCitiesComponent } from './view/data-table-cities/data-table-cities.component';
 import { ResumenComponent } from './view/resumen/resumen.component';
 import { EmergencyStatesComponent } from './view/resumen/emergency-states/emergency-states.component';
+import { routing, appRoutingProviders } from './app.routing';
+import { NavbarComponent } from './shared/navbar/navbar.component';
 
 
 @NgModule({
@@ -20,7 +24,8 @@ import { EmergencyStatesComponent } from './view/resumen/emergency-states/emerge
     CardAirQualityComponent,
     DataTableCitiesComponent,
     ResumenComponent,
-    EmergencyStatesComponent
+    EmergencyStatesComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
@@ -28,9 +33,12 @@ import { EmergencyStatesComponent } from './view/resumen/emergency-states/emerge
     BrowserAnimationsModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
+    MatSortModule,
+    MatToolbarModule,
+    routing,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [appRoutingProviders],
+  bootstrap: [AppComponent],
+  exports: [MatToolbarModule]
 })
 export class AppModule { }

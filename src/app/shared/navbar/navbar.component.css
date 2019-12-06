@@ -1,0 +1,9 @@
+.navbar-format {
+    text-decoration: none;
+    color: white;
+    text-shadow: 1px 1px 1px black;
+}
+
+.active {
+    color: orange
+}

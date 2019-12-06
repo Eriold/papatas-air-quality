@@ -6,32 +6,32 @@ import { Observable, of as observableOf, merge } from 'rxjs';
 
 // TODO: Replace this with your own data model type
 export interface DataTableCitiesItem {
-  name: string;
-  id: number;
+  nameCity: string;
+  totalDevices: number;
 }
 
 // TODO: replace this with real data from your application
 const EXAMPLE_DATA: DataTableCitiesItem[] = [
-  {id: 1, name: 'Hydrogen'},
-  {id: 2, name: 'Helium'},
-  {id: 3, name: 'Lithium'},
-  {id: 4, name: 'Beryllium'},
-  {id: 5, name: 'Boron'},
-  {id: 6, name: 'Carbon'},
-  {id: 7, name: 'Nitrogen'},
-  {id: 8, name: 'Oxygen'},
-  {id: 9, name: 'Fluorine'},
-  {id: 10, name: 'Neon'},
-  {id: 11, name: 'Sodium'},
-  {id: 12, name: 'Magnesium'},
-  {id: 13, name: 'Aluminum'},
-  {id: 14, name: 'Silicon'},
-  {id: 15, name: 'Phosphorus'},
-  {id: 16, name: 'Sulfur'},
-  {id: 17, name: 'Chlorine'},
-  {id: 18, name: 'Argon'},
-  {id: 19, name: 'Potassium'},
-  {id: 20, name: 'Calcium'},
+  { totalDevices: 1, nameCity: 'Hydrogen' },
+  { totalDevices: 2, nameCity: 'Helium' },
+  { totalDevices: 3, nameCity: 'Lithium' },
+  { totalDevices: 4, nameCity: 'Beryllium' },
+  { totalDevices: 5, nameCity: 'Boron' },
+  { totalDevices: 6, nameCity: 'Carbon' },
+  { totalDevices: 7, nameCity: 'Nitrogen' },
+  { totalDevices: 8, nameCity: 'Oxygen' },
+  { totalDevices: 9, nameCity: 'Fluorine' },
+  { totalDevices: 10, nameCity: 'Neon' },
+  { totalDevices: 11, nameCity: 'Sodium' },
+  { totalDevices: 12, nameCity: 'Magnesium' },
+  { totalDevices: 13, nameCity: 'Aluminum' },
+  { totalDevices: 14, nameCity: 'Silicon' },
+  { totalDevices: 15, nameCity: 'Phosphorus' },
+  { totalDevices: 16, nameCity: 'Sulfur' },
+  { totalDevices: 17, nameCity: 'Chlorine' },
+  { totalDevices: 18, nameCity: 'Argon' },
+  { totalDevices: 19, nameCity: 'Potassium' },
+  { totalDevices: 20, nameCity: 'Calcium' },
 ];
 
 /**
@@ -71,7 +71,7 @@ export class DataTableCitiesDataSource extends DataSource<DataTableCitiesItem> {
    *  Called when the table is being destroyed. Use this function, to clean up
    * any open connections or free any held resources that were set up during connect.
    */
-  disconnect() {}
+  disconnect() { }
 
   /**
    * Paginate the data (client-side). If you're using server-side pagination,
@@ -94,15 +94,15 @@ export class DataTableCitiesDataSource extends DataSource<DataTableCitiesItem> {
     return data.sort((a, b) => {
       const isAsc = this.sort.direction === 'asc';
       switch (this.sort.active) {
-        case 'name': return compare(a.name, b.name, isAsc);
-        case 'id': return compare(+a.id, +b.id, isAsc);
+        case 'nameCity': return compare(a.nameCity, b.nameCity, isAsc);
+        case 'id': return compare(+a.totalDevices, +b.totalDevices, isAsc);
         default: return 0;
       }
     });
   }
 }
 
-/** Simple sort comparator for example ID/Name columns (for client-side sorting). */
+/** Simple sort comparator for example ID/nameCity columns (for client-side sorting). */
 function compare(a, b, isAsc) {
   return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
 }

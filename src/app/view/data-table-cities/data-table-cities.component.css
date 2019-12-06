@@ -14,3 +14,13 @@
 .pasive-color:active {
     background-color: #add6f6;
 }
+
+@media only screen and (max-width: 800px) {
+    .full-width-table {
+        width: 100%;
+    }
+    .data-table {
+        width: 100%;
+        margin: 0;
+    }
+}
