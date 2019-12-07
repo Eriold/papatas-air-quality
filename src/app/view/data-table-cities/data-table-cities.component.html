@@ -1,21 +1,20 @@
 <div class="mat-elevation-z8 data-table">
-    <table mat-table class="full-width-table" matSort aria-label="Elements">
-        <!-- Id Column -->
-        <ng-container matColumnDef="id">
+    <table mat-table [dataSource]="dataSource" class="full-width-table" matSort aria-label="Elements">
+
+        <ng-container matColumnDef="nameCity">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombre de Ciudad</th>
             <td mat-cell *matCellDef="let row">{{row.nameCity}}</td>
         </ng-container>
 
-        <!-- Name Column -->
-        <ng-container matColumnDef="name">
+        <ng-container matColumnDef="deviceTotal">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Total dispositivos</th>
-            <td mat-cell *matCellDef="let row">{{row.totalDevices}}</td>
+            <td mat-cell *matCellDef="let row">{{row.deviceTotal}}</td>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr (click)="redirection(row.nameCity)" class="pasive-color" mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
 
-    <mat-paginator #paginator [length]="dataSource?.data.length" [pageIndex]="0" [pageSize]="10" [pageSizeOptions]="[10, 50, 100, 250]">
+    <mat-paginator #paginator [length]="dataSource.length" [pageIndex]="0" [pageSize]="10" [pageSizeOptions]="[10, 50, 100, 250]">
     </mat-paginator>
 </div>

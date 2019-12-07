@@ -1,39 +1,75 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
-import { MatTable } from '@angular/material/table';
-import { DataTableCitiesDataSource, DataTableCitiesItem } from './data-table-cities-datasource';
+import { Component, OnInit, DoCheck } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-
+import { CitiesService } from '../../services/cities.service';
+import { DeviceService } from '../../services/devices.service';
+import { City } from '../../model/city.model';
+import { Device } from '../../model/device.model';
 
 @Component({
   selector: 'app-data-table-cities',
   templateUrl: './data-table-cities.component.html',
   styleUrls: ['./data-table-cities.component.css']
 })
-export class DataTableCitiesComponent implements AfterViewInit, OnInit {
-  @ViewChild(MatPaginator, { static: false }) paginator: MatPaginator;
-  @ViewChild(MatSort, { static: false }) sort: MatSort;
-  @ViewChild(MatTable, { static: false }) table: MatTable<DataTableCitiesItem>;
-  dataSource: DataTableCitiesDataSource;
+export class DataTableCitiesComponent implements OnInit, DoCheck {
 
-  /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['id', 'name'];
-
-  ngOnInit() {
-    this.dataSource = new DataTableCitiesDataSource();
-  }
-
-  ngAfterViewInit() {
-    this.dataSource.sort = this.sort;
-    this.dataSource.paginator = this.paginator;
-    this.table.dataSource = this.dataSource;
-  }
+  citiesList: City[];
+  devicesList: Device[];
+  cityName: any[];
+  displayedColumns = ['nameCity', 'deviceTotal'];
+  dataSource: any[];
 
   constructor(
-    private route: ActivatedRoute,
-    private router: Router
-  ) { }
+    private router: Router,
+    private deviceService: DeviceService,
+    private citiesService: CitiesService
+  ) {
+    this.citiesList = [];
+    this.devicesList = [];
+    this.cityName = [];
+  }
+
+  ngOnInit() {
+    this.getCities();
+    this.getDevices();
+  }
+
+  ngDoCheck() {
+    this.getCityName();
+    this.dataSource = this.cityName;
+  }
+
+  getCityName() {
+    this.cityName = this.citiesList.map((cities: City) => ({
+      nameCity: cities.country,
+      deviceTotal: this.optainCuantity(cities.id)
+    }));
+  }
+
+  optainCuantity(cities: string) {
+    let cont = 0;
+    let totDevices: number[];
+    totDevices = this.devicesList.map((devices: Device) => {
+      if (+cities === devices.cityId) {
+        return cont = cont + 1;
+      } else {
+        return cont;
+      }
+    });
+
+    return totDevices[totDevices.length - 1];
+  }
+
+  getDevices() {
+    this.deviceService.list().subscribe((devices: Device[]) => {
+      this.devicesList = devices;
+    });
+  }
+
+  getCities() {
+    this.citiesService.list().subscribe((cities: City[]) => {
+      this.citiesList = cities;
+    });
+  }
 
   redirection(nameCity: Params) {
     this.router.navigate([`/resumen/${nameCity}`]);

@@ -1,4 +1,4 @@
-import { Component, OnInit, DoCheck } from '@angular/core';
+import { Component, OnInit, DoCheck, AfterContentInit } from '@angular/core';
 import { Device } from './model/device.model';
 import { DeviceService } from './services/devices.service';
 import { City } from './model/city.model';
@@ -9,7 +9,7 @@ import { CitiesService } from './services/cities.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit, DoCheck {
+export class AppComponent implements OnInit, DoCheck, AfterContentInit {
 
   deviceList: Device[];
   cityList: City[];
@@ -29,8 +29,11 @@ export class AppComponent implements OnInit, DoCheck {
   }
 
   ngDoCheck() {
-    console.log(this.deviceList);
-    console.log(this.cityList);
+    // console.log(this.deviceList);
+    // console.log(this.cityList);
+    // this.cityList.map((value: City, index: number) => console.log(value.name));
   }
 
+  ngAfterContentInit() {
+  }
 }
