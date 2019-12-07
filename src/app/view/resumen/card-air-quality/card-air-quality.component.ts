@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-card-air-quality',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./card-air-quality.component.css']
 })
 export class CardAirQualityComponent implements OnInit {
-
+  nameCity: Params;
   Id: string;
   Name: string;
   LastActivity: string;
@@ -15,7 +16,10 @@ export class CardAirQualityComponent implements OnInit {
   StormLevel: string;
   AirQuality: number;
   Icon: string;
-  constructor() {
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router
+  ) {
     this.Id = 'PL-999';
     this.Name = 'Nombre';
     this.LastActivity = '2019-08-18T23:00:12.000';
@@ -27,7 +31,7 @@ export class CardAirQualityComponent implements OnInit {
   }
 
   getColorAirQuality(AirQuality: number) {
-    return (AirQuality > 0) ? ((AirQuality === 2) ? 'red' : 'orange') : '#06d829';
+    return (AirQuality > 0) ? ((AirQuality === 2) ? '#F4000D' : '#FFA900') : '#009D00';
   }
 
   formatLastActivity(LastActivity: string) {
@@ -47,5 +51,10 @@ export class CardAirQualityComponent implements OnInit {
     return (StormLevel === 'none') ? 'fas fa-sun' : ((StormLevel === 'electric') ? 'fas fa-poo-storm' : 'fas fa-radiation-alt');
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.route.params.subscribe((params: Params) => {
+      this.nameCity = params.city;
+      console.log(params);
+    });
+  }
 }

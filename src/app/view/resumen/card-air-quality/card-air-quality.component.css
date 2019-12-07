@@ -10,7 +10,6 @@
 
 .card-air-quality {
     width: 240px;
-    /* border-color: red; */
     border-radius: 10px;
     border-style: solid;
     border-width: 1px;
@@ -20,15 +19,13 @@
 .flex-container {
     display: flex;
     align-items: stretch;
+    margin: auto;
 }
 
 .flex-container>div {
-    /* background-color: DodgerBlue; */
-    /* color: white; */
     width: 40px;
     margin: 2px;
     line-height: 25px;
-    /* font-family: ; */
 }
 
 
@@ -36,7 +33,7 @@
 
 .aling-left {
     text-align: left;
-    padding-left: 10px;
+    padding-left: 5px;
 }
 
 .aling-right {
@@ -47,11 +44,15 @@
 
 /********** Format default text using in card air quality **********/
 
-.city-name {
+.text-city-name {
     display: block;
-    margin-left: 10px;
     line-height: 0.5em;
     text-decoration: underline;
+    font-weight: 400;
+}
+
+.text-card-name {
+    font-weight: 700;
 }
 
 
@@ -67,28 +68,35 @@
 
 .size-text-big {
     font-size: 18px;
-    /* font-family: ; */
 }
 
 .circle-emergency {
     height: 14px;
     width: 14px;
-    /* background-color: red; */
     border-radius: 50%;
     display: inline-block;
     vertical-align: middle;
 }
 
 .pl-desing-border {
-    background-color: #e0e0e0;
+    background-color: #f2f2f2;
     border-radius: 10px;
     margin: 3px;
-    border: 2px solid #e0e0e0;
+    border: 2px solid #f2f2f2;
 }
 
 .last-activity {
-    margin: 5px;
     color: #bbb9b9;
-    font-family: Tahoma;
-    /* font-weight: 550; */
+    font-weight: 500;
+}
+
+.card-font-temperature {
+    font-weight: 500;
+    font-size: 22px;
+}
+
+.color-grey-dark-text {
+    color: #474747;
+    margin-left: 20px;
+    margin-bottom: 8px;
 }

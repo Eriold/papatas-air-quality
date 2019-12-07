@@ -1,0 +1,17 @@
+.main-content-resumen {
+    width: 83%;
+    border-radius: 20px;
+    background-color: rgb(255, 255, 255);
+    margin: 20px auto;
+    padding: 10px;
+}
+
+.content-resumen {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.resume-color-grey-dark {
+    color: #474747;
+}
