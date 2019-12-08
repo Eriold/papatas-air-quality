@@ -1,0 +1,41 @@
+.emergency-content {
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.emergency-state {
+    text-align: center;
+    justify-items: center;
+    text-justify: center;
+    border-radius: 5px;
+    width: 125px;
+    height: 40px;
+    background-color: #f2f2f2;
+    margin: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    display: grid;
+}
+
+.background-number {
+    /* background-color: #f4000d; */
+    width: 30px;
+    height: 15px;
+    border-radius: 10px;
+    color: white;
+    font-weight: 600;
+    font-size: 11pt;
+}
+
+.emergency {
+    background-color: #f4000d;
+}
+
+.alert {
+    background-color: #ffa900;
+}
+
+.normal {
+    background-color: #009e00;
+}

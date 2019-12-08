@@ -47,16 +47,12 @@ export class DataTableCitiesComponent implements OnInit, DoCheck {
 
   optainCuantity(cities: string) {
     let cont = 0;
-    let totDevices: number[];
-    totDevices = this.devicesList.map((devices: Device) => {
+    this.devicesList.map((devices: Device) => {
       if (+cities === devices.cityId) {
-        return cont = cont + 1;
-      } else {
-        return cont;
+        cont = cont + 1;
       }
     });
-
-    return totDevices[totDevices.length - 1];
+    return cont;
   }
 
   getDevices() {

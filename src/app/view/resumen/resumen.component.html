@@ -1,14 +1,9 @@
 <div class="main-content-resumen">
-    <h2 class="resume-color-grey-dark">Resúmen</h2>
-    <h3 *ngIf="nameCity">{{ nameCity }}</h3>
-    <app-emergency-states></app-emergency-states>
+    <h3 class="resume-color-grey-dark">Resúmen</h3>
+    <div class="content-resumen">
+        <app-emergency-states></app-emergency-states>
+    </div>
 </div>
 <div class="main-content-resumen">
-    <div class="content-resumen">
-        <app-card-air-quality></app-card-air-quality>
-        <app-card-air-quality></app-card-air-quality>
-        <app-card-air-quality></app-card-air-quality>
-        <app-card-air-quality></app-card-air-quality>
-        <app-card-air-quality></app-card-air-quality>
-    </div>
+    <app-card-air-quality></app-card-air-quality>
 </div>

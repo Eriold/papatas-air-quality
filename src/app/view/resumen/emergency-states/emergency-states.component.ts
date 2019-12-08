@@ -6,8 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./emergency-states.component.css']
 })
 export class EmergencyStatesComponent implements OnInit {
+  numberEmergency: number;
+  constructor() {
 
-  constructor() { }
+    this.numberEmergency = 3;
+  }
 
   ngOnInit() {
   }

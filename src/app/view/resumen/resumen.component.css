@@ -6,11 +6,19 @@
     padding: 10px;
 }
 
-.content-resumen {
+
+/* app-card-air-quality {
+    display: inline-block;
+    flex-direction: row;
+    flex-wrap: wrap;
+} */
+
+
+/* .content-resumen {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-}
+} */
 
 .resume-color-grey-dark {
     color: #474747;
