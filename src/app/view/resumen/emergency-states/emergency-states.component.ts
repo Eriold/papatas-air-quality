@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-emergency-states',
@@ -6,10 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./emergency-states.component.css']
 })
 export class EmergencyStatesComponent implements OnInit {
-  numberEmergency: number;
-  constructor() {
 
-    this.numberEmergency = 3;
+  @Input('numbersEmergency') Emergency: number;
+  @Input('numbersAlert') Alert: number;
+  @Input('numbersNormal') Normal: number;
+  constructor() {
   }
 
   ngOnInit() {

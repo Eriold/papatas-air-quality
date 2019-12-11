@@ -52,9 +52,9 @@ export class CardAirQualityComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.route.params.subscribe((params: Params) => {
-      this.nameCity = params.city;
-      console.log(params);
-    });
+    // this.route.params.subscribe((params: Params) => {
+    //   this.nameCity = params.city;
+    //   console.log(params);
+    // });
   }
 }
