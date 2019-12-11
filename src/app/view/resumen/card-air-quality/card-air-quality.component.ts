@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
 @Component({
@@ -7,6 +7,9 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
   styleUrls: ['./card-air-quality.component.css']
 })
 export class CardAirQualityComponent implements OnInit {
+
+  @Input('cardList') cardList: any[];
+
   nameCity: Params;
   Id: string;
   Name: string;

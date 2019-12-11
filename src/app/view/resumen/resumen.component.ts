@@ -4,7 +4,18 @@ import { CitiesService } from '../../services/cities.service';
 import { DeviceService } from '../../services/devices.service';
 import { City } from '../../model/city.model';
 import { Device } from '../../model/device.model';
+import { flatten } from '@angular/compiler';
 
+
+// const flatten = <T = any>(arr: T[]) => {
+//   const reducer = <T = any>(prev: T[], curr: T | T[]) => {
+//     if (curr.constructor !== Array) {
+//       return [...prev, curr];
+//     }
+//     return curr.reduce(reducer, prev);
+//   };
+//   return arr.reduce(reducer, []);
+// };
 
 @Component({
   selector: 'app-resumen',
@@ -35,6 +46,7 @@ export class ResumenComponent implements OnInit, DoCheck {
     this.numbersAlert = 0;
     this.numbersNormal = 0;
     this.cityID = 0;
+    this.cardToList = [];
   }
 
   ngOnInit() {
@@ -46,6 +58,8 @@ export class ResumenComponent implements OnInit, DoCheck {
   ngDoCheck() {
     this.getIdCity();
     this.getNumbersEmergencys();
+    this.newListToCard();
+    console.log(this.cardToList);
   }
 
   getIdCity() {
@@ -54,6 +68,26 @@ export class ResumenComponent implements OnInit, DoCheck {
         this.cityID = +cities.id;
       }
     });
+  }
+
+  newListToCard() {
+    let count = 0;
+    const cardToListFlatten = [];
+    this.devicesList.forEach((devices: Device, index: number) => {
+      if (devices.cityId === this.cityID) {
+        cardToListFlatten[count] = [{
+          id: devices.id,
+          Name: devices.name,
+          CityIdName: this.nameCity,
+          StormLevel: devices.stormLevel,
+          Temperature: devices.temperature,
+          LastActivity: devices.lasAtctivity,
+          AirQuality: devices.airQuality
+        }];
+        count = count + 1;
+      }
+    });
+    this.cardToList = flatten(cardToListFlatten);
   }
 
   getNumbersEmergencys() {
