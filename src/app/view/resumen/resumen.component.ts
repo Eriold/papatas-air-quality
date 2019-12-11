@@ -59,7 +59,6 @@ export class ResumenComponent implements OnInit, DoCheck {
     this.getIdCity();
     this.getNumbersEmergencys();
     this.newListToCard();
-    console.log(this.cardToList);
   }
 
   getIdCity() {
@@ -76,7 +75,7 @@ export class ResumenComponent implements OnInit, DoCheck {
     this.devicesList.forEach((devices: Device, index: number) => {
       if (devices.cityId === this.cityID) {
         cardToListFlatten[count] = [{
-          id: devices.id,
+          Id: devices.id,
           Name: devices.name,
           CityIdName: this.nameCity,
           StormLevel: devices.stormLevel,
