@@ -19,9 +19,8 @@ export class CardAirQualityComponent {
   formatLastActivity(LastActivity: string) {
     const dateApi: any = new Date(LastActivity);
     const dateNow: any = new Date();
-    const dayMilliseconds = 86400000;
     const differenceMilliseconds = dateNow - dateApi;
-    const differenceDays = differenceMilliseconds / dayMilliseconds;
+    const differenceDays = differenceMilliseconds / 86400000;
     const stringDays = ('' + differenceDays).split('.');
     const hours = parseFloat('0.' + stringDays[1]) * 24;
     return ` ${stringDays[0]}d ${Math.trunc(hours)}h`;
